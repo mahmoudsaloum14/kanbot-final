@@ -1,0 +1,144 @@
+dialog.modal {
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: 0;
+  margin: auto;
+  max-height: 90dvh;
+}
+dialog.modal::backdrop {
+  background: #07150faa;
+  backdrop-filter: blur(3px);
+}
+dialog.modal > p,
+dialog.modal > .field,
+dialog.modal > .check,
+dialog.modal > .dialogActions {
+  margin: 20px;
+}
+.todoTitle {
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-weight: 600;
+  padding: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.todoTitle small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+  font-weight: 400;
+}
+.todoRow {
+  grid-template-columns: 18px 82px minmax(80px, 1fr) 70px 75px 58px 110px;
+}
+.moveSelect {
+  font-size: 11px;
+  padding: 6px;
+  min-width: 0;
+}
+.summary {
+  scroll-margin-top: 95px;
+}
+.summary > button {
+  float: none;
+  margin: 12px 0;
+}
+.summary > p {
+  clear: both;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+input[type="checkbox"] {
+  width: auto;
+  accent-color: var(--accent);
+}
+.aiDrawer .iconBtn {
+  color: var(--text);
+}
+.aiActions {
+  flex-wrap: wrap;
+}
+.aiDrawer:focus {
+  outline: none;
+}
+.projectSelect {
+  font-size: 12px;
+}
+@media (max-width: 850px) {
+  .todoRow {
+    grid-template-columns: 16px 65px minmax(80px, 1fr) 55px 100px;
+  }
+  .projectSelect {
+    font-size: 10px;
+    padding: 8px 2px;
+  }
+}
+@media (max-width: 560px) {
+  .shell > aside.mobileOpen {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 76px;
+    height: calc(100dvh - 76px);
+    width: 260px;
+    z-index: 12;
+    box-shadow: var(--shadow);
+  }
+  .mobileOpen .brand span,
+  .mobileOpen nav a {
+    font-size: 16px;
+  }
+  .mobileOpen nav a {
+    justify-content: flex-start;
+  }
+  .mobileOpen .projectSelect {
+    font-size: 12px;
+  }
+  .mobileOpen .sideFoot div,
+  .mobileOpen .sideFoot button:first-of-type {
+    display: grid;
+  }
+  .todoRow {
+    grid-template-columns: 50px minmax(60px, 1fr) 45px 85px;
+    gap: 6px;
+  }
+  .todoRow > .drag {
+    display: none;
+  }
+  .draft {
+    grid-template-columns: 20px minmax(0, 1fr);
+  }
+  .draft select:nth-last-child(-n + 2) {
+    display: block;
+  }
+  .draft select {
+    grid-column: 2;
+  }
+  .boardCard h4 {
+    overflow-wrap: anywhere;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.projectTitle {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
