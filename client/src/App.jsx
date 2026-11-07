@@ -288,8 +288,16 @@ function safeRedirect(value) {
 function Brand() {
   return (
     <div className="brand">
-      <img src="/brand.svg" alt="" />
-      <span>kanbot</span>
+      <img
+        className="brand-full"
+        src="/kanbot-logo.svg"
+        alt="Kanbot"
+      />
+      <img
+        className="brand-icon"
+        src="/brand.svg"
+        alt="Kanbot"
+      />
     </div>
   );
 }

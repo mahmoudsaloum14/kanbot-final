@@ -5,7 +5,7 @@ export default defineConfig({
   workers: 4,
   timeout: 60_000,
   use: {
-    baseURL: "http://127.0.0.1:49186",
+    baseURL: "http://127.0.0.1:49187",
     headless: true,
     screenshot: "only-on-failure",
     trace: "retain-on-failure",

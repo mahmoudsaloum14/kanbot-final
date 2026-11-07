@@ -1,15 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
-  --bg: #f4f7f5;
-  --surface: #fff;
-  --soft: #eaf0ed;
-  --text: #15221d;
-  --muted: #68756e;
-  --line: #dbe4df;
-  --accent: #087c62;
-  --accent2: #b7f1d8;
-  --danger: #c63c48;
-  --shadow: 0 18px 45px #173b2b13;
+  --bg: #f8f8f8;
+  --surface: #ffffff;
+  --soft: #f0f1f2;
+  --text: #292a2e;
+  --muted: #6b6e76;
+  --line: #0b120e24;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-pressed: #3730a3;
+  --accent2: #eef2ff;
+  --focus: #6366f1;
+  --danger: #ae2e24;
+  --danger-bg: #ffeceb;
+  --ai-bg: #dcfff1;
+  --ai-fg: #164b35;
+  --overlay: #050c1f75;
+  --shadow: 0 8px 12px #1e1f2126, 0 0 1px #1e1f214f;
 }
 * {
   box-sizing: border-box;
@@ -19,19 +26,27 @@ body {
   background: var(--bg);
   color: var(--text);
   font:
-    14px "DM Sans",
+    14px Inter,
     sans-serif;
 }
 html[data-theme="dark"] {
-  --bg: #101816;
-  --surface: #18231f;
-  --soft: #22312b;
-  --text: #edf6ef;
-  --muted: #a6b5ad;
-  --line: #2e433a;
-  --accent: #4dd4a7;
-  --accent2: #174c3c;
-  --shadow: 0 18px 45px #0004;
+  --bg: #18191a;
+  --surface: #242528;
+  --soft: #303134;
+  --text: #cecfd2;
+  --muted: #96999e;
+  --line: #e3e4f21f;
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-pressed: #c7d2fe;
+  --accent2: #25274a;
+  --focus: #a5b4fc;
+  --danger: #fd9891;
+  --danger-bg: #42221f;
+  --ai-bg: #1c3329;
+  --ai-fg: #baf3db;
+  --overlay: #10121499;
+  --shadow: 0 8px 12px #0104045c, 0 0 1px #01040480;
 }
 button,
 input,
@@ -52,7 +67,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 a:focus-visible {
-  outline: 3px solid #60d9b199;
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 .shell {
@@ -84,9 +99,7 @@ p {
   margin-top: 0;
 }
 h1 {
-  font:
-    600 32px Fraunces,
-    serif;
+  font: 700 30px Inter, sans-serif;
   letter-spacing: -1px;
   margin-bottom: 5px;
 }
@@ -123,9 +136,7 @@ aside {
   display: flex;
   align-items: center;
   gap: 9px;
-  font:
-    600 24px Fraunces,
-    serif;
+  font: 700 22px Inter, sans-serif;
   color: var(--text);
   padding: 0 8px 26px;
 }
@@ -228,7 +239,10 @@ nav a:hover {
   color: #fff;
 }
 .primary:hover {
-  filter: brightness(1.1);
+  background: var(--accent-hover);
+}
+.primary:active {
+  background: var(--accent-pressed);
 }
 .outline {
   color: var(--text);
@@ -239,8 +253,8 @@ nav a:hover {
   display: flex;
   gap: 7px;
   align-items: center;
-  background: var(--text);
-  color: var(--surface);
+  background: var(--ai-bg);
+  color: var(--ai-fg);
   padding: 10px 15px;
   border-radius: 9px;
   font-weight: 600;
@@ -368,7 +382,7 @@ nav a:hover {
 }
 .empty h2 {
   color: var(--text);
-  font: 600 24px Fraunces;
+  font: 700 24px Inter, sans-serif;
 }
 .loading,
 .loadingPage {
@@ -430,9 +444,7 @@ textarea {
   display: grid;
   place-items: center;
   padding: 24px;
-  background:
-    radial-gradient(circle at 20% 20%, var(--accent2), transparent 31%),
-    var(--bg);
+  background: var(--bg);
 }
 .authCard {
   width: min(440px, 100%);
@@ -451,7 +463,7 @@ textarea {
 .alert {
   padding: 11px;
   border-radius: 8px;
-  background: #dc58651f;
+  background: var(--danger-bg);
   color: var(--danger);
   margin: 16px 0;
 }
@@ -474,7 +486,7 @@ textarea {
 .modalBack {
   position: fixed;
   inset: 0;
-  background: #07150f99;
+  background: var(--overlay);
   z-index: 20;
   display: grid;
   place-items: center;
@@ -590,16 +602,16 @@ textarea {
   font-weight: 700;
 }
 .badge.urgent {
-  background: #ef44552a;
-  color: #d73140;
+  background: var(--danger-bg);
+  color: var(--danger);
 }
 .badge.high {
-  background: #e98b2628;
-  color: #bd6910;
+  background: #fff5db;
+  color: #693200;
 }
 .badge.low {
-  background: #5186ed21;
-  color: #3668c3;
+  background: #cfe1fd;
+  color: #123263;
 }
 .points {
   font-size: 11px;
@@ -728,7 +740,7 @@ textarea {
   color: white;
 }
 .status.completed {
-  background: #6f78901f;
+  background: var(--soft);
 }
 .sprintDetail {
   background: var(--surface);
@@ -808,8 +820,8 @@ textarea {
 }
 .mock {
   font-size: 10px;
-  background: #e5b42822;
-  color: #b7820b;
+  background: var(--ai-bg);
+  color: var(--ai-fg);
   padding: 4px 6px;
   border-radius: 5px;
 }
@@ -847,7 +859,8 @@ textarea {
   color: #fff;
 }
 .message.assistant {
-  background: var(--soft);
+  background: var(--ai-bg);
+  color: var(--ai-fg);
 }
 .thinking {
   color: var(--muted);

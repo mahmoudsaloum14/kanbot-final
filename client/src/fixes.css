@@ -6,7 +6,7 @@ dialog.modal {
   max-height: 90dvh;
 }
 dialog.modal::backdrop {
-  background: #07150faa;
+  background: var(--overlay);
   backdrop-filter: blur(3px);
 }
 dialog.modal > p,
@@ -141,4 +141,39 @@ input[type="checkbox"] {
   padding: 0;
   text-align: left;
   cursor: pointer;
+}
+/* Official Kanbot Branding */
+
+.brand {
+  container-type: inline-size;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.brand .brand-full {
+  display: block;
+  width: 155px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.brand .brand-icon {
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+
+/* Use the icon when the sidebar is collapsed */
+@container (max-width: 75px) {
+  .brand .brand-full,
+  .brand-full {
+    display: none;
+  }
+
+  .brand .brand-icon,
+  .brand-icon {
+    display: block;
+  }
 }

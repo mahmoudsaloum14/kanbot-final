@@ -31,7 +31,7 @@ export default async function globalSetup() {
       NODE_ENV: "test",
       DATA_FILE: dataFile,
       AI_API_KEY: "",
-      CLIENT_ORIGIN: "http://127.0.0.1:49186",
+      CLIENT_ORIGIN: "http://127.0.0.1:49187",
     },
     stdio: "pipe",
   });
@@ -41,7 +41,7 @@ export default async function globalSetup() {
   process.env.VITE_API_URL = "http://127.0.0.1:50021/api";
   const frontend = await createServer({
     root: client,
-    server: { host: "127.0.0.1", port: 49186, strictPort: true },
+    server: { host: "127.0.0.1", port: 49187, strictPort: true },
   });
   await frontend.listen();
 

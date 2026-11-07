@@ -372,13 +372,14 @@ test("browser maps duplicate registration and login errors and rejects unsafe re
   await page.getByRole("button", { name: "Create account" }).click();
   await expect(page.getByText("An account with this email already exists.")).toBeVisible();
   await page.getByRole("link", { name: "Log in" }).click();
+  await expect(page.getByRole("heading", { name: "Welcome back" })).toBeVisible();
   await page.getByLabel("Email").fill("duplicate@example.test");
-  await page.getByLabel("Password").fill("wrong-password");
+  await page.getByLabel("Password", { exact: true }).fill("wrong-password");
   await page.getByRole("button", { name: "Log in" }).click();
   await expect(page.getByText("Incorrect email or password.")).toBeVisible();
   await page.goto("/login?redirect=https://untrusted.example");
   await page.getByLabel("Email").fill("duplicate@example.test");
-  await page.getByLabel("Password").fill("browser-password-123");
+  await page.getByLabel("Password", { exact: true }).fill("browser-password-123");
   await page.getByRole("button", { name: "Log in" }).click();
   await expect(page).toHaveURL(/\/projects$/);
 });
